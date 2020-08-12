@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+
+  proxy:
+    image: simple-app-nginx
+    build:
+      context: ./nginx
+      dockerfile: nginx.Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - subnet
+    depends_on:
+      - frontend
+
+  frontend:
+    image: simple-app-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - subnet
+
+networks:
+  subnet:
