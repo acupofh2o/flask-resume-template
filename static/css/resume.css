@@ -5,10 +5,10 @@
  */
 
 body {
-  font-family: 'Karla';
+  font-family: 'Questrial';
   padding-top: 54px;
   font-weight: normal;
-  color: #6c7a89;
+  color: #483C32;
 }
 
 @media (min-width: 992px) {
@@ -24,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik';
+  font-family: 'Public Sans';
   font-weight: 500;
   color: #2e3131;
 }
@@ -42,16 +42,46 @@ h3 {
   font-size: 2rem;
 }
 
+h4 {
+  font-size: 1.5rem;
+  font-family: 'Public Sans';
+  font-weight: bold;
+}
+
 p.lead {
   font-size: 1.15rem;
   font-weight: 400;
 }
 
+.description{
+  color: #95a5a6;
+  font-family: 'Public Sans';
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
 .subheading {
   font-weight: 500;
-  font-family: 'Rubik';
+  font-family: 'Public Sans';
   font-size: 1.5rem;
   color: #95a5a6;
+}
+
+.tag_heading{
+  font-family: 'Public Sans';
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #95a5a6;
+}
+
+.badge{
+  font-size: 1.15rem;
+  font-family: sans-serif;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+.badge-primary{
+  background-color: #1f3a93;
 }
 
 .social-icons a {
