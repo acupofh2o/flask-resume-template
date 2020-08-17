@@ -1,9 +1,11 @@
-version: "3"
+version: "2"
 
 services:
 
   proxy:
-    image: simple-app-nginx
+    image: silvius1/resume-proxy
+    mem_limit: 256m
+    mem_reservation: 128m
     build:
       context: ./nginx
       dockerfile: nginx.Dockerfile
@@ -15,7 +17,9 @@ services:
       - frontend
 
   frontend:
-    image: simple-app-frontend
+    image: silvius1/resume-frontend
+    mem_limit: 256m
+    mem_reservation: 128m
     build:
       context: .
       dockerfile: Dockerfile

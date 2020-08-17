@@ -1,0 +1,28 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "essential": true,
+            "image": "silvius1/resume-frontend",
+            "memory": 256,
+            "name": "frontend"
+        },
+        {
+            "essential": true,
+            "image": "silvius1/resume-proxy",
+            "memory": 256,
+            "name": "proxy",
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80
+                }
+            ],
+	    "links":[
+	    	"frontend"
+	    ]
+        }
+    ],
+    "family": "",
+    "volumes": []
+}
