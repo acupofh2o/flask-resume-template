@@ -1,8 +1,7 @@
 # Profile section
 profile:
   first_name: Silviu
-  last_name: Moisoiu
-  # picture: https://rodolfoferro.xyz/assets/images/profile.jpg   # Hosted picture
+  last_name: Moisoiul
   picture: static/img/me_groovy.gif  # Local picture
   contact:
     address_one: Bucharest, Romania
@@ -13,7 +12,7 @@ profile:
      I enjoy working on creative projects and like to
      tackle problems with curiosity and a pragmatic
      mind. Reasonable and balanced I aim to take
-     responsibility of things I know I can deliver on. With people i tend to be honest, fair and perseverant.
+     responsibility of things I know I can deliver on. Working with people i tend to be honest, fair and perseverant.
   interest:
     - Linux
     - DevOps
@@ -44,7 +43,6 @@ experience:
     to: May 2020
     description: >
       Responsible with provisioning, configuration and management of new/existing servers. Worked on containerization of our microservices using docker and docker-compose. Implemented orchestration with Kubernetes. Developed unit tests for our authentication service. Developed our email flow and triggers for the authentication service using AWS Lambda.
-
   item1:
     position: Linux Specialist
     company: Undatech
@@ -68,7 +66,7 @@ experience:
     from: June 2015
     to: September 2015
     description: >
-      Responsible with monitoring of the coaxial and optic fibre network and assigntment of different incident responses.
+      Responsible with monitoring and incident assignment of the coaxial and optic fibre network.
 
 
 
@@ -178,9 +176,9 @@ projects:
     tags: [Arduino, RFID, 3D Printing]
   item4:
     title: IoT Home Monitoring system
-    subtitle: Visualising basic stats of a room
+    subtitle: Visualising basic stats in a room
     description: Build a home monitoring system comprised of several sensors to gather basic information about humidity, temperature, pressure and sound in a room. The data then gets plotted over time through an API for visualisation purposes.
-    tags: [Arduino, Electronic Sensors, API]
+    tags: [Arduino, Sensors, API]
   item5:
     title: Audio Pre-Amplifier
     subtitle: Hardware project
