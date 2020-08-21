@@ -3,13 +3,13 @@
     "containerDefinitions": [
         {
             "essential": true,
-            "image": "silvius1/resume-frontend",
+            "image": "silvius1/resume-frontend:latest",
             "memory": 256,
             "name": "frontend"
         },
         {
             "essential": true,
-            "image": "silvius1/resume-proxy",
+            "image": "silvius1/resume-proxy:latest",
             "memory": 256,
             "name": "proxy",
             "portMappings": [
