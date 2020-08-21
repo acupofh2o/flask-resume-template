@@ -1,8 +1,7 @@
 # Profile section
 profile:
   first_name: Silviu
-  last_name: Moisoiu
-  # picture: https://rodolfoferro.xyz/assets/images/profile.jpg   # Hosted picture
+  last_name: MoisoiuXXXXX
   picture: static/img/me_groovy.gif  # Local picture
   contact:
     address_one: Bucharest, Romania
