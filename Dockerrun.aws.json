@@ -30,7 +30,8 @@
             "mountPoints": [
                 {
                     "containerPath": "/rootfs",
-                    "sourceVolume": ""
+                    "sourceVolume": "Rootfs",
+		    "readOnly": true
                 },
                 {
                     "containerPath": "/var/run",
@@ -38,11 +39,13 @@
                 },
                 {
                     "containerPath": "/sys",
-                    "sourceVolume": "Sys"
+                    "sourceVolume": "Sys",
+		    "readOnly": true
                 },
                 {
                     "containerPath": "/var/lib/docker",
-                    "sourceVolume": "VarLibDocker"
+                    "sourceVolume": "VarLibDocker",
+		    "readOnly": true
                 }
             ],
             "name": "cadvisor",
@@ -100,15 +103,18 @@
             "mountPoints": [
                 {
                     "containerPath": "/host/proc",
-                    "sourceVolume": "Proc"
+                    "sourceVolume": "Proc",
+		    "readOnly": true
                 },
                 {
                     "containerPath": "/host/sys",
-                    "sourceVolume": "Sys"
+                    "sourceVolume": "Sys",
+ 		    "readOnly": true
                 },
                 {
                     "containerPath": "/rootfs",
-                    "sourceVolume": ""
+                    "sourceVolume": "Rootfs",
+  		    "readOnly": true
                 }
             ],
             "name": "node-exporter",
@@ -194,7 +200,7 @@
             "host": {
                 "sourcePath": "/"
             },
-            "name": ""
+            "name": "Rootfs"
         },
         {
             "host": {
