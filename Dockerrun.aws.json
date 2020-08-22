@@ -2,14 +2,158 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
         {
+            "command": [
+                "--config.file=/etc/alertmanager/config.yml",
+                "--storage.path=/alertmanager"
+            ],
             "essential": true,
-            "image": "silvius1/resume-frontend:latest",
+            "image": "prom/alertmanager",
             "memory": 256,
-            "name": "frontend"
+            "mountPoints": [
+                {
+                    "containerPath": "/etc/alertmanager/",
+                    "sourceVolume": "_Alertmanager"
+                }
+            ],
+            "name": "alertmanager",
+            "portMappings": [
+                {
+                    "containerPort": 9093,
+                    "hostPort": 9093
+                }
+            ]
         },
         {
             "essential": true,
-            "image": "silvius1/resume-proxy:latest",
+            "image": "google/cadvisor",
+            "memory": 256,
+            "mountPoints": [
+                {
+                    "containerPath": "/rootfs",
+                    "sourceVolume": ""
+                },
+                {
+                    "containerPath": "/var/run",
+                    "sourceVolume": "VarRun"
+                },
+                {
+                    "containerPath": "/sys",
+                    "sourceVolume": "Sys"
+                },
+                {
+                    "containerPath": "/var/lib/docker",
+                    "sourceVolume": "VarLibDocker"
+                }
+            ],
+            "name": "cadvisor",
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080
+                }
+            ]
+        },
+        {
+            "essential": true,
+            "image": "silvius1/resume-frontend",
+            "memory": 256,
+            "name": "frontend",
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 5000
+                }
+            ]
+        },
+        {
+            "essential": true,
+            "image": "grafana/grafana",
+            "memory": 256,
+            "mountPoints": [
+                {
+                    "containerPath": "/var/lib/grafana",
+                    "sourceVolume": "Grafana_Data"
+                },
+                {
+                    "containerPath": "/etc/grafana/provisioning/",
+                    "sourceVolume": "_GrafanaProvisioning"
+                }
+            ],
+            "name": "grafana",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000
+                }
+            ]
+        },
+        {
+            "command": [
+                "--path.procfs=/host/proc",
+                "--path.sysfs=/host/sys",
+                "--collector.filesystem.ignored-mount-points",
+                "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
+            ],
+            "essential": true,
+            "image": "prom/node-exporter",
+            "memory": 256,
+            "mountPoints": [
+                {
+                    "containerPath": "/host/proc",
+                    "sourceVolume": "Proc"
+                },
+                {
+                    "containerPath": "/host/sys",
+                    "sourceVolume": "Sys"
+                },
+                {
+                    "containerPath": "/rootfs",
+                    "sourceVolume": ""
+                }
+            ],
+            "name": "node-exporter",
+            "portMappings": [
+                {
+                    "containerPort": 9100,
+                    "hostPort": 9100
+                }
+            ]
+        },
+        {
+            "command": [
+                "--config.file=/etc/prometheus/prometheus.yml",
+                "--storage.tsdb.path=/prometheus",
+                "--web.console.libraries=/usr/share/prometheus/console_libraries",
+                "--web.console.templates=/usr/share/prometheus/consoles"
+            ],
+            "essential": true,
+            "image": "prom/prometheus:v2.1.0",
+            "links": [
+                "cadvisor:cadvisor",
+                "alertmanager:alertmanager"
+            ],
+            "memory": 256,
+            "mountPoints": [
+                {
+                    "containerPath": "/etc/prometheus/",
+                    "sourceVolume": "_Prometheus"
+                },
+                {
+                    "containerPath": "/prometheus",
+                    "sourceVolume": "Prometheus_Data"
+                }
+            ],
+            "name": "prometheus",
+            "portMappings": [
+                {
+                    "containerPort": 9090,
+                    "hostPort": 9090
+                }
+            ]
+        },
+        {
+            "essential": true,
+            "image": "silvius1/resume-proxy",
             "memory": 256,
             "name": "proxy",
             "portMappings": [
@@ -17,12 +161,70 @@
                     "containerPort": 80,
                     "hostPort": 80
                 }
-            ],
-	    "links":[
-	    	"frontend"
-	    ]
+            ]
         }
     ],
     "family": "",
-    "volumes": []
+    "volumes": [
+        {
+            "host": {
+                "sourcePath": "./prometheus/"
+            },
+            "name": "_Prometheus"
+        },
+        {
+            "host": {
+                "sourcePath": "prometheus_data"
+            },
+            "name": "Prometheus_Data"
+        },
+        {
+            "host": {
+                "sourcePath": "/proc"
+            },
+            "name": "Proc"
+        },
+        {
+            "host": {
+                "sourcePath": "/sys"
+            },
+            "name": "Sys"
+        },
+        {
+            "host": {
+                "sourcePath": "/"
+            },
+            "name": ""
+        },
+        {
+            "host": {
+                "sourcePath": "./alertmanager/"
+            },
+            "name": "_Alertmanager"
+        },
+        {
+            "host": {
+                "sourcePath": "/var/run"
+            },
+            "name": "VarRun"
+        },
+        {
+            "host": {
+                "sourcePath": "/var/lib/docker/"
+            },
+            "name": "VarLibDocker"
+        },
+        {
+            "host": {
+                "sourcePath": "grafana_data"
+            },
+            "name": "Grafana_Data"
+        },
+        {
+            "host": {
+                "sourcePath": "./grafana/provisioning/"
+            },
+            "name": "_GrafanaProvisioning"
+        }
+    ]
 }
