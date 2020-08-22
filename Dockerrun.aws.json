@@ -78,7 +78,7 @@
                     "sourceVolume": "Grafana_Data"
                 },
                 {
-                    "containerPath": /etc/grafana/provisioning/,
+                    "containerPath": '/etc/grafana/provisioning/',
                     "sourceVolume": "_GrafanaProvisioning"
                 }
             ],
