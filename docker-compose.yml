@@ -5,7 +5,7 @@ services:
   proxy:
     image: silvius1/resume-proxy
     container_name: nginx-proxy
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     build:
       context: ./nginx
@@ -21,7 +21,7 @@ services:
   frontend:
     image: silvius1/resume-frontend
     container_name: frontend
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     build:
       context: .
@@ -36,7 +36,7 @@ services:
   prometheus:
     image: prom/prometheus:v2.1.0
     container_name: prometheus
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     volumes:
       - ./prometheus/:/etc/prometheus/
@@ -64,7 +64,7 @@ services:
   node-exporter:
     image: prom/node-exporter
     container_name: node-exporter
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     volumes:
       - /proc:/host/proc:ro
@@ -84,7 +84,7 @@ services:
   alertmanager:
     image: prom/alertmanager
     container_name: alertmanager
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     ports:
       - 9093:9093
@@ -103,7 +103,7 @@ services:
   cadvisor:
     image: google/cadvisor
     container_name: cadvisor
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     volumes:
       - /:/rootfs:ro
@@ -119,7 +119,7 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
-    mem_limit: 256m
+    mem_limit: 128m
     mem_reservation: 128m
     depends_on:
       - prometheus
