@@ -2,10 +2,6 @@
 profile:
   first_name: Silviu
   last_name: Moisoiu
-<<<<<<< HEAD
-=======
-  # picture: https://rodolfoferro.xyz/assets/images/profile.jpg   # Hosted picture
->>>>>>> parent of 9d888cd... fixed dir structure
   picture: static/img/me_groovy.gif  # Local picture
   contact:
     address_one: Bucharest, Romania
@@ -236,4 +232,3 @@ courses:
     title: Learn Ansible by Doing
     issuer: LinuxAcademy
     date: June - August 2020
-
