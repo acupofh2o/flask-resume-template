@@ -1,7 +1,7 @@
 # Profile section
 profile:
   first_name: Silviu
-  last_name: Moisoiu_test
+  last_name: Moisoiu
   picture: static/img/me_groovy.gif  # Local picture
   contact:
     address_one: Bucharest, Romania
