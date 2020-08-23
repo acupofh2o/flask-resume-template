@@ -1,7 +1,7 @@
 # Profile section
 profile:
   first_name: Silviu
-  last_name: Moisoiu
+  last_name: MoisoiuXXXXX
   picture: static/img/me_groovy.gif  # Local picture
   contact:
     address_one: Bucharest, Romania
@@ -41,44 +41,33 @@ experience:
     industry: Real-Estate
     from: May 2018
     to: May 2020
-    description:
-      - Responsible with provisioning, configuration and management of new/existing servers.
-      - Worked on containerization of our micro-services using docker and docker-compose.
-      - Implemented orchestration with Kubernetes. Developed unit tests for our authentication service.
-      - Developed our email flow and triggers for the authentication service using AWS Lambda.
+    description: >
+      Responsible with provisioning, configuration and management of new/existing servers. Worked on containerization of our microservices using docker and docker-compose. Implemented orchestration with Kubernetes. Developed unit tests for our authentication service. Developed our email flow and triggers for the authentication service using AWS Lambda.
 
   item1:
     position: Linux Specialist
     company: Undatech
     industry: 3D Printing & Manufacturing
-    from: June 2017
+    from: July 2017
     to: October 2017
-    description:
-      - Responsible with provisioning, configuration and management of new/existing servers.
-      - Got familiarized with the 3D printing workflow.
-      - Built python automation scripts for various internal processes.
-      - Provisioned and tested different kernel configurations to be used on chips inside 3D printing machines.
+    description: >
+      Got familiarized with the 3D printing workflow. Build python automation scripts for various internal processes. Provisioned and tested different kernel configurations to be used on chips inside 3D printing machines.
   item2:
     position: Project Manager
     company: Indrasoft
     industry: Software Services
-    from: June 2016
+    from: July 2016
     to: February 2017
-    description:
-      - Introduced and planned the development of new features.
-      - Marketing, promotion and acquisition of new clients and partners.
-      - Maintained relationships with existing investors.
-      - Grew our user-base from 0 to ~800 total users in about 4 months.
+    description: >
+      Introduced and planned the development of new features. Marketing, promotion and acquisition of new clients and partners. Maintained relationships with existing investors.
   item3:
     position: Internship
     company: UPC
     industry: Telecommunications
     from: June 2015
     to: September 2015
-    description:
-      - Responsible with monitoring of the national coaxial and optic fibre network.
-      - Categorized and organized incident responses.
-      - Assignment of various incidents to local teams.
+    description: >
+      Responsible with monitoring of the coaxial and optic fibre network and assigntment of different incident responses.
 
 
 
@@ -143,15 +132,22 @@ community:
 
 
 # Skills section
-
-skills:
-  - Operating systems - Linux(Ubuntu, Debian, CentOS), macOS, Windows
-  - Programming Technologie - Python, YAML, Json, Bash, MongoDB, Flask, AWS(Basic)
-  - Version Control - Git, Github, Bitbucket
-  - Containers - Docker, docker-compose, Kubernetes(basic)
-  - Provisioning and automation - Ansible, Jenkins, Jenkins Pipelines
-  - Monitoring - Prometheus(basic), Grafana(basic)
-
+tools:
+  # Consider that the following are fa icons:
+  #   https://fontawesome.com/icons?d=gallery&s=brands
+  - python
+  - git-alt
+  - github
+  - gitlab
+  - gitkraken
+  - raspberry-pi
+  - google
+  - google-drive
+  - slack
+  - trello
+  - markdown
+  - html5
+  - bootstrap
 extra_skills:
   - UI/UX design using Sketch/Adobe xD
   - Prototyping using Principle
@@ -177,12 +173,12 @@ projects:
   item3:
     title: IoT Door Lock
     subtitle: Smart door locking system
-    description: Built the software interface for smart doorlocking system using Arduino's programming language. The system was comprised of an ESP8266 Wifi module, some servo-motors, a 3D printed case, LEDs, and an RFID sensor. Access was being provided through RFID tags.
+    description: Build the software interface for smart doorlocking system using Arduino's programming language. The system was comprised of an ESP8266 Wifi module, some servo-motors, a 3D printed case, LEDs, and an RFID sensor. Access was being provided through RFID tags.
     tags: [Arduino, RFID, 3D Printing]
   item4:
     title: IoT Home Monitoring system
     subtitle: Visualising basic stats of a room
-    description: Built a home monitoring system comprised of several sensors to gather basic information about humidity, temperature, pressure and sound in a room. The data then gets plotted over time through an API for visualisation purposes.
+    description: Build a home monitoring system comprised of several sensors to gather basic information about humidity, temperature, pressure and sound in a room. The data then gets plotted over time through an API for visualisation purposes.
     tags: [Arduino, Electronic Sensors, API]
   item5:
     title: Audio Pre-Amplifier

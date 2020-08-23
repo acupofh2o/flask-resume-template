@@ -126,17 +126,62 @@
       <div class="w-100">
         <h2 class="mb-5">Skills</h2>
 
-        <div class="subheading mb-3">Hard Skills and Tools</div>
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
         <div>
-          <ul class="mb-3">
-            {% for item in data.skills %}
-            <li>
-              {{ item }}
-            </li>
-            {% endfor %}
-          </ul>
-          </div>
+              <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Hard skills</th>
+                  <th scope="col">Soft skills</th>
+                  <th scope="col">Tools</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
 
+                  <td>Ubuntu, Debian, CentOS</td>
+                  <td>Time management</td>
+                  <td>Ansible</td>
+                </tr>
+                <tr>
+
+                  <td>Python</td>
+                  <td>People Management</td>
+                  <td>Docker</td>
+                </tr>
+                <tr>
+
+                  <td>Bash</td>
+                  <td>Project Management</td>
+                  <td>Docker-compose</td>
+                </tr>
+                <tr>
+
+                  <td>Git</td>
+                  <td>Negociation</td>
+                  <td>Kubernetes(basic)</td>
+                </tr>
+                <tr>
+
+                  <td>AWS(basic)</td>
+                  <td>Emotional Intelligence</td>
+                  <td>Flask</td>
+                </tr>
+                <tr>
+
+                  <td>MongoDB</td>
+                  <td>Empathy</td>
+                  <td>Prometheus(basic)</td>
+                </tr>
+                <tr>
+
+                  <td>YAML</td>
+                  <td>Curiosity and Learning</td>
+                  <td>Grafana(basic)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         <div class="subheading mb-3">Extra skills / knowledge</div>
         <ul class="mb-0">
           {% for item in data.extra_skills %}
@@ -160,14 +205,10 @@
           <div class="resume-content">
             <h3 class="mb-0">{{ item.position }}</h3>
             <div class="subheading mb-3">{{ item.company }} · {{ item.industry }}</div>
-              <div>
-              <ul class="mb-3">
-                {% for elem in item.description %}
-                <li>
-                  {{ elem }}</li>
-                {% endfor %}
-              </ul>
-              </div>
+            <p>{{ item.description }}</p>
+            {% if item.link %}
+            <p><a href="{{ item.link }}">Reference link.</a></p>
+            {% endif %}
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">{{ item.from }} - {{ item.to }}</span>
@@ -224,7 +265,7 @@
             {% endif %}
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">{{ item.from }} {{ item.to }}</span>
+            <span class="text-primary">{{ item.from }} - {{ item.to }}</span>
           </div>
         </div>
         {% else %}
