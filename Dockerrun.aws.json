@@ -78,7 +78,7 @@
                     "sourceVolume": "Grafana_Data"
                 },
                 {
-                    "containerPath": '/etc/grafana/provisioning/',
+                    "containerPath": "/etc/grafana/provisioning/",
                     "sourceVolume": "_GrafanaProvisioning"
                 }
             ],
@@ -134,10 +134,6 @@
             ],
             "essential": true,
             "image": "prom/prometheus:v2.1.0",
-            "links": [
-                "cadvisor:cadvisor",
-                "alertmanager:alertmanager"
-            ],
             "memory": 128,
             "mountPoints": [
                 {
@@ -174,7 +170,7 @@
     "volumes": [
         {
             "host": {
-                "sourcePath": "./prometheus/"
+                "sourcePath": "/var/app/current/prometheus/"
             },
             "name": "_Prometheus"
         },
@@ -204,7 +200,7 @@
         },
         {
             "host": {
-                "sourcePath": "./alertmanager/"
+                "sourcePath": "/var/app/current/alertmanager/"
             },
             "name": "_Alertmanager"
         },
@@ -228,7 +224,7 @@
         },
         {
             "host": {
-                "sourcePath": "./grafana/provisioning/"
+                "sourcePath": "/var/app/current/grafana/provisioning/"
             },
             "name": "_GrafanaProvisioning"
         }
